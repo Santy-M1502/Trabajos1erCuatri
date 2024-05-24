@@ -76,30 +76,37 @@ def definir_campo_alumno(campo:str)->str:
             retorno = "nombre"
         case "g":
             retorno = "genero"
+        case "s":
+            retorno = "sector"
+        case "loc":
+            retorno = "localidad"
         case "p":
-            retorno = "promedio"
+            retorno = "provincia"
         case _: raise ValueError("No es un campo valido")
     return retorno
 
 
-def ordenar_alumnos(alumnos, campo, asc:bool = True):
+def ordenar_empleados(empleados, campo, asc:bool = True):
     atributo = definir_campo_alumno(campo)
-    tam = len(alumnos)
+    tam = len(empleados)
     for i in range(tam - 1):
         for j in range(i + 1, tam):
-            if alumnos[i][atributo] > alumnos[j][atributo] if asc else alumnos[i][atributo] < alumnos[j][atributo]:
-                swap_lista(alumnos, i, j)   
+            if empleados[i][atributo] > empleados[j][atributo] if asc else empleados[i][atributo] < empleados[j][atributo]:
+                swap_lista(empleados, i, j)   
 
-def ordenar_alumnos_doble_criterio(alumnos:list):
+def ordenar_empleados_triple_criterio(empleados:list):
 
-    tam = len(alumnos)
+    tam = len(empleados)
     for i in range(tam-1):
         for j in range ( i+1, tam):
-            if alumnos[i]["genero"] == alumnos[j]["genero"]:
-                if alumnos[i]["legajo"] > alumnos[j]["legajo"]:
-                    swap_lista(alumnos, i, j)
-            elif alumnos[i]["genero"] > alumnos[j]["genero"]:
-                    swap_lista(alumnos, i, j)
+            if empleados[i]["sector"] == empleados[j]["sector"]:
+                if empleados[i]["genero"] == empleados[j]["genero"]:
+                    if empleados[i]["nombre"] > empleados[j]["nombre"]:
+                        swap_lista(empleados, i, j)
+                elif empleados[i]["genero"] > empleados[j]["genero"]:
+                    swap_lista(empleados, i, j)
+            elif empleados[i]["sector"] > empleados[j]["sector"]:
+                    swap_lista(empleados, i, j)
 
 def new_empleado(legajo:str, nombre:str, apellido:str, genero:str, edad:int, email:str, calle:str, localidad:str, provincia:str, sector:str)->dict:
     nuevo_empleado = {}

@@ -1,6 +1,6 @@
 from funciones_empleados import *
 
-TAM = 5
+TAM = 40
 empleados = []
 
 
@@ -15,12 +15,17 @@ empleados = []
 #     provincia = input("Ingrese provincia: ")
 #     email = input("Ingrese email: ")
 #     sector = input("Ingrese sector: ")
+#     agregar sueldo!!!!!!!
 #     empleados.append(new_empleado(legajo, nombre, apellido, genero, edad, calle, localidad, provincia, email, sector))
 # mostrar_empleados(empleados)
 
 cargar_empleados(empleados, TAM)
-
+ordenar_empleados_triple_criterio(empleados)
 mostrar_empleados(empleados)
+
+#PUNTOS TAREAS PROFE
+
+
 
 
 
