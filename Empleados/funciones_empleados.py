@@ -33,6 +33,9 @@ def cargar_legajos_lista(lista:list)->None:
         lista.append(randint(legajo_min, legajo_max))
     else:
         raise ValueError("Eso no es una lista")
+    
+def cargar_sueldo(lista:list)->None:
+    lista.append(randint(100000, 200000))
 
 def cargar_empleados(lista:list, cantidad:int):
     LEGAJO_INICIAL = 20000
@@ -51,8 +54,9 @@ def cargar_empleados(lista:list, cantidad:int):
             localidad = choice(localidades)
             provincia = choice(provincias)
             sector = choice(sectores)
+            sueldo = randint(100000, 200000)
             email = f"{nombre.lower()}{apellido.lower()}{choice(dominios)}"
-            lista.append(new_empleado(legajo, nombre, apellido, genero, edad, calle, localidad, provincia, email, sector))
+            lista.append(new_empleado(legajo, nombre, apellido, genero, edad, calle, localidad, provincia, email, sector, sueldo))
     else:
         raise ValueError("Eso no es una lista")
 
@@ -108,7 +112,7 @@ def ordenar_empleados_triple_criterio(empleados:list):
             elif empleados[i]["sector"] > empleados[j]["sector"]:
                     swap_lista(empleados, i, j)
 
-def new_empleado(legajo:str, nombre:str, apellido:str, genero:str, edad:int, email:str, calle:str, localidad:str, provincia:str, sector:str)->dict:
+def new_empleado(legajo:str, nombre:str, apellido:str, genero:str, edad:int, email:str, calle:str, localidad:str, provincia:str, sector:str, sueldo:str)->dict:
     nuevo_empleado = {}
     nuevo_empleado["legajo"] = legajo
     nuevo_empleado["nombre"] = nombre
@@ -120,4 +124,21 @@ def new_empleado(legajo:str, nombre:str, apellido:str, genero:str, edad:int, ema
     nuevo_empleado["localidad"] = localidad
     nuevo_empleado["provincia"] = provincia
     nuevo_empleado["sector"] = sector
+    nuevo_empleado["sueldo"] = sueldo
     return nuevo_empleado
+
+def buscar_nombre_por_legajo(lista:list):
+    legajo_ingresado = int(input("Ingrese el legajo del empleado: "))
+    punto_0_flag = False
+    for i in range(len(lista)):
+        if legajo_ingresado == lista[i]["legajo"]:
+            print(lista[i]["nombre"])
+            punto_0_flag = True 
+    if punto_0_flag == False:
+        print("No hay empleados con ese legajo")
+
+def mostrar_nombre_sector(lista:list):
+    for e in range(len(lista)):
+        print(f"{lista[e]["nombre"]} - {lista[e]["sector"]}")
+
+
