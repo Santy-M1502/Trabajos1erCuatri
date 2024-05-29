@@ -1,6 +1,6 @@
 from funciones_empleados import *
 
-TAM = 5
+TAM = 20
 empleados = []
 
 
@@ -25,33 +25,47 @@ mostrar_empleados(empleados)
 
 
 
-#PUNTOS TAREAS PROFE----------------------
-#0 pedir un legajo y mostrar al empleado con ese legajo
+# # PUNTOS TAREAS PROFE----------------------
+# # 0 pedir un legajo y mostrar al empleado con ese legajo
 buscar_nombre_por_legajo(empleados)
 
-print("--.-.---.--.--.-.-.-.-.-.-.-.-.-.-.-.-.-")
-#1 mostrar por consola los nombres y sectores de los empleados
-for e in range(TAM):
-    print(f"{empleados[e]["nombre"]} - {empleados[e]["sector"]}")
+# print("--.-.---.--.--.-.-.-.-.-.-.-.-.-.-.-.-.-")
+# #1 mostrar por consola los nombres y sectores de los empleados
+# for e in range(TAM):
+#     print(f"{empleados[e]["nombre"]} - {empleados[e]["sector"]}")
 
-print("--.-.---.--.--.-.-.-.-.-.-.-.-.-.-.-.-.-")
-#2 pedir un sector y mostrar los empleados de ese sector
+# print("--.-.---.--.--.-.-.-.-.-.-.-.-.-.-.-.-.-")
+# #2 pedir un sector y mostrar los empleados de ese sector
+# buscar_nombre_por_sector(empleados)
+
 print("--.-.---.--.--.-.-.-.-.-.-.-.-.-.-.-.-.-")
 #3 pedir un sector y mostrar el promedio de los sueldos de ese sector
+# promedio_sueldo_por_sector(empleados)
+
 print("--.-.---.--.--.-.-.-.-.-.-.-.-.-.-.-.-.-")
-#4 mostrar el promedio de sueldos de cada uno de los sectores
+# 4 mostrar el promedio de sueldos de cada uno de los sectores
+pass
+
 print("--.-.---.--.--.-.-.-.-.-.-.-.-.-.-.-.-.-")
 #5 mostrar el empleados que mas gana y a que sector pertenece
+# empleado_sector_mayor_sueldo(empleados)
+
 print("--.-.---.--.--.-.-.-.-.-.-.-.-.-.-.-.-.-")
 #6 mostrar el empleado o los empleados que tienen el mail mas corto y cuantos caracteres tiene
+pass
+
 print("--.-.---.--.--.-.-.-.-.-.-.-.-.-.-.-.-.-")
 #7 decir cual es el sector que mas sueldo cobra
+# sector_mas_cobra(empleados)
+
 print("--.-.---.--.--.-.-.-.-.-.-.-.-.-.-.-.-.-")
 #8 decir cual es el sector que mas empleados tiene
+pass
+
 print("--.-.---.--.--.-.-.-.-.-.-.-.-.-.-.-.-.-")
 #9 ordenar empleados por sector, dentro de un sector por genero y dentro del genero por legajo descendente
-
-
+# ordenar_empleados_triple_criterio(empleados)
+# mostrar_empleados(empleados)
 
 
 
