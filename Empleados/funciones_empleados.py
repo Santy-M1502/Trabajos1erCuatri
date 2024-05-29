@@ -239,4 +239,19 @@ def sector_mas_cobra(lista:list):
     else:
         raise ValueError("Eso no es una lista")
 
+def busqueda_binaria_empleado_legajo(legajo, lista):
+    ordenar_lista(lista)
+    inf = 0
+    sup = len(lista) - 1
+    while inf <= sup:
+        medio = (inf + sup) // 2
+        if lista[medio]["legajo"] == legajo:
+            return medio
+        elif legajo > lista[medio]["legajo"]:
+            inf = medio + 1
+        else:
+            sup = medio - 1
+    raise ValueError(f"{legajo} is not in list")
+
+
 
