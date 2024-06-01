@@ -3,13 +3,12 @@ from random import randint, choice
 from data_empleados import *
 
 
-def calcular_promedio(valor1:int, valor2:int)->float:
-    if isinstance(valor1, int):
-        if isinstance(valor2, int):
-            promedio = (valor1 + valor2) / 2
-            return promedio
-        else:
-            raise ValueError("El segundo numero tambien debe ser un entero")
+def calcular_promedio(lista:list)->float:
+    if isinstance(lista, list):
+        cant = len(lista)
+        if cant == 0:
+            raise ValueError("No esta definico el promedio de una lista vacia")
+        return totalizar_lista(lista) / cant
     else:
         raise ValueError("Los valores ingresados deben ser enteros")
 
@@ -71,18 +70,21 @@ def cargar_empleados(lista:list, cantidad:int):
 
 def mostrar_empleado(un_empleado:dict):
     if isinstance(un_empleado,dict):
-        print(f"  {un_empleado["legajo"]}   {un_empleado["nombre"]}   {un_empleado["apellido"]}      {un_empleado["genero"]}        {un_empleado["edad"]}   {un_empleado["localidad"]}   {un_empleado["provincia"]}   {un_empleado["email"]}         {un_empleado["sector"]}   {un_empleado["calle"]}  {un_empleado["sueldo"]} ") 
+        print(f"Legajo: {un_empleado["legajo"]}\nNombre: {un_empleado["nombre"]} {un_empleado["apellido"]}\nGenero: {un_empleado["genero"]}\nEdad: {un_empleado["edad"]:2}\nDireccion: {un_empleado["calle"]} {un_empleado["localidad"]} {un_empleado["provincia"]}\nSector: {un_empleado["sector"]}\nEmail: {un_empleado["email"]}\nSueldo:$ {un_empleado["sueldo"]:.2f}")
     else:
         raise ValueError("No se ingreso ningun diccionario")
 
+def mostrar_empleado_fila(un_empleado: dict):
+    print(f"{un_empleado["legajo"]} {un_empleado["nombre"]:<8} {un_empleado["apellido"]:<10} {un_empleado["genero"]} {un_empleado["edad"]:2} {un_empleado["calle"]:<18} {un_empleado["localidad"]:<12} {un_empleado["provincia"]:<12} {un_empleado["sector"]:<12} {un_empleado["email"]:<20} {un_empleado["sueldo"]:8.2f}")
+
 def mostrar_empleados(empleados:list)->None:
     if isinstance(empleados,list):
+        cant = len(empleados)
         print("                             ***Lista de empleados***")
         print("  Legajo   Nombre  Apellido      Genero   Edad     Porvincia     Email            Calle         Sector       Localidad   Sueldo")
         print("-----------------------------------------------------------------------------------------------------------------------")
-        cant = len(empleados)
         for i in range(cant):
-            mostrar_empleado(empleados[i])
+            mostrar_empleado_fila(empleados[i])
         print()
     else:
         raise ValueError("Eso no es una lista")
@@ -189,7 +191,10 @@ def promedio_sueldo_por_sector(lista:list):
             if sector_ingresado == lista[i]["sector"]:
                 sumar_sueldos += lista[i]["sueldo"]
                 contador_sector += 1
-        print(f"Promedio del sector {sector_ingresado} es {sumar_sueldos / contador_sector}")
+        if contador_sector != 0:
+            print(f"Promedio del sector {sector_ingresado} es {sumar_sueldos / contador_sector}")
+        else:
+            print("No hay empleados de ese sector")
     else:
         raise ValueError("Eso no es una lista")
 
@@ -240,7 +245,6 @@ def sector_mas_cobra(lista:list):
         raise ValueError("Eso no es una lista")
 
 def busqueda_binaria_empleado_legajo(legajo, lista):
-    ordenar_lista(lista)
     inf = 0
     sup = len(lista) - 1
     while inf <= sup:
@@ -252,6 +256,47 @@ def busqueda_binaria_empleado_legajo(legajo, lista):
         else:
             sup = medio - 1
     raise ValueError(f"{legajo} is not in list")
+
+def bustar_empleado_legajo(legajo,lista):
+    indice = 0
+    while indice < len(lista) and lista[indice]["legajo"] != legajo:
+        indice += 1
+    if indice == len(lista):
+        return None
+    else:
+        return indice
+
+def mapear_nombre_sector(lista:list)->list:
+    lista_retorno = []
+    for el in lista:
+        lista_retorno.append((el["nombre"], el["sector"]))
+    return lista_retorno
+
+def mapear_edades(lista:list)->list:
+    lista_retorno = []
+    for el in lista:
+        lista_retorno.append(el["edad"])
+    return lista_retorno
+
+def mapear_campo(lista:list, campo)->list:
+    lista_retorno = []
+    for el in lista:
+        lista_retorno.append(el[campo])
+    return lista_retorno
+
+
+
+
+def filtar_empleados_sector(lista:list, sector)->list:
+    lista_retorno = []
+    for el in lista:
+        if el["sector"] == sector:
+            lista_retorno.append(el)
+    return lista_retorno
+
+
+
+
 
 
 

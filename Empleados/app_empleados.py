@@ -20,14 +20,15 @@ empleados = []
 # mostrar_empleados(empleados)
 
 cargar_empleados(empleados, TAM)
-# ordenar_empleados_triple_criterio(empleados)
+# ordenar_empleados(empleados, "l")
 mostrar_empleados(empleados)
+# print(busqueda_binaria_empleado_legajo(20002, empleados))
 
 
 
 # # PUNTOS TAREAS PROFE----------------------
 # # 0 pedir un legajo y mostrar al empleado con ese legajo
-buscar_nombre_por_legajo(empleados)
+# buscar_nombre_por_legajo(empleados)
 
 # print("--.-.---.--.--.-.-.-.-.-.-.-.-.-.-.-.-.-")
 # #1 mostrar por consola los nombres y sectores de los empleados
@@ -35,16 +36,33 @@ buscar_nombre_por_legajo(empleados)
 #     print(f"{empleados[e]["nombre"]} - {empleados[e]["sector"]}")
 
 # print("--.-.---.--.--.-.-.-.-.-.-.-.-.-.-.-.-.-")
-# #2 pedir un sector y mostrar los empleados de ese sector
-# buscar_nombre_por_sector(empleados)
+# # #2 pedir un sector y mostrar los empleados de ese sector
+# sector = "Sistemas"
+# empleados_sistemas = filtar_empleados_sector(empleados, sector)
+# mostrar_empleados(empleados_sistemas)
+
+# if len(empleados_sistemas) > 0:
+#     mostrar_empleados(empleados_sistemas)
+# else:
+#     print(f"No hay empleados de {sector}")
 
 print("--.-.---.--.--.-.-.-.-.-.-.-.-.-.-.-.-.-")
-#3 pedir un sector y mostrar el promedio de los sueldos de ese sector
+# 3 pedir un sector y mostrar el promedio de los sueldos de ese sector
 # promedio_sueldo_por_sector(empleados)
+# sector = "Contabilidad"
+# empleados_contabilidad = filtar_empleados_sector(empleados,sector)
+# sueldos = mapear_campo(empleados_contabilidad, "sueldo")
+# promedio = calcular_promedio(sueldos)
+# print(f"Promedio sueldo sector {sector}: ${promedio}")
 
 print("--.-.---.--.--.-.-.-.-.-.-.-.-.-.-.-.-.-")
 # 4 mostrar el promedio de sueldos de cada uno de los sectores
-pass
+# for sector in sectores:
+#     empleados_sector = filtar_empleados_sector(empleados, sector)
+#     sueldos = mapear_campo(empleados_sector, "sueldo")
+#     promedio = calcular_promedio(sueldos)
+#     print(f"Promedio sueldo sector {sector}: ${promedio}")
+#     print("----------------------------")
 
 print("--.-.---.--.--.-.-.-.-.-.-.-.-.-.-.-.-.-")
 #5 mostrar el empleados que mas gana y a que sector pertenece
