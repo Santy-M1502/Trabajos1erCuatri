@@ -284,6 +284,11 @@ def mapear_campo(lista:list, campo)->list:
         lista_retorno.append(el[campo])
     return lista_retorno
 
+def mapear_lista(procesadora, lista:list)->list:
+    lista_retorno = []
+    for el in lista:
+        lista_retorno.append(procesadora(el))
+    return lista_retorno
 
 
 

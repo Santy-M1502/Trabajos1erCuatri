@@ -70,7 +70,16 @@ print("--.-.---.--.--.-.-.-.-.-.-.-.-.-.-.-.-.-")
 
 print("--.-.---.--.--.-.-.-.-.-.-.-.-.-.-.-.-.-")
 #6 mostrar el empleado o los empleados que tienen el mail mas corto y cuantos caracteres tiene
-pass
+# emails = mapear_campo(empleados, "email")
+# email_corto = []
+# email_flag = True
+# for el in emails:
+#     if email_flag == True or len(el) < len(email_corto[0]):
+#         email_corto = []
+#         email_corto.append(el)
+#         email_flag = False
+# print(email_corto)
+
 
 print("--.-.---.--.--.-.-.-.-.-.-.-.-.-.-.-.-.-")
 #7 decir cual es el sector que mas sueldo cobra

@@ -14,7 +14,7 @@ def busqueda_binaria(target, lista):
     raise ValueError(f"{target} is not in list")
 
 try:
-    print(busqueda_binaria(200  , numeros))
+    print(busqueda_binaria(4  , numeros))
 except ValueError:
     print("No esta en la lista")
 
