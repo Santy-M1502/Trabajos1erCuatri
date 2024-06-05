@@ -299,6 +299,30 @@ def filtar_empleados_sector(lista:list, sector)->list:
             lista_retorno.append(el)
     return lista_retorno
 
+def filtrar_lista(filtradora, lista:list)->list:
+    lista_retorno = []
+    for el in lista:
+        if filtradora(el):
+            lista_retorno.append(el)
+    return lista_retorno
+
+def for_each_lista(funcion, lista)->None:
+    for i in range(len(lista)):
+        lista[i] = funcion(lista[i])
+
+def reduce_lista(funcion, lista):
+    pass
+
+def ordenar_lista(criterio, lista)->None:
+    for i in range(len(lista) - 1):
+        for j in range(i - 1):
+            if criterio(i, j):
+                swap_lista(lista, i, j)
+
+
+
+
+
 
 
 

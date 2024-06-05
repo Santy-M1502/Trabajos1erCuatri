@@ -21,7 +21,7 @@ empleados = []
 
 cargar_empleados(empleados, TAM)
 # ordenar_empleados(empleados, "l")
-mostrar_empleados(empleados)
+# mostrar_empleados(empleados)
 # print(busqueda_binaria_empleado_legajo(20002, empleados))
 
 
@@ -32,13 +32,12 @@ mostrar_empleados(empleados)
 
 # print("--.-.---.--.--.-.-.-.-.-.-.-.-.-.-.-.-.-")
 # #1 mostrar por consola los nombres y sectores de los empleados
-# for e in range(TAM):
-#     print(f"{empleados[e]["nombre"]} - {empleados[e]["sector"]}")
+# mostrar_lista_tuplas(mapear_lista(lambda emp: (emp["nombre"],emp["sector"]), empleados))
 
 # print("--.-.---.--.--.-.-.-.-.-.-.-.-.-.-.-.-.-")
 # # #2 pedir un sector y mostrar los empleados de ese sector
 # sector = "Sistemas"
-# empleados_sistemas = filtar_empleados_sector(empleados, sector)
+# empleados_sistemas = filtrar_lista(lambda emp: (emp["sector"]) == sector, empleados)
 # mostrar_empleados(empleados_sistemas)
 
 # if len(empleados_sistemas) > 0:
@@ -93,8 +92,6 @@ print("--.-.---.--.--.-.-.-.-.-.-.-.-.-.-.-.-.-")
 #9 ordenar empleados por sector, dentro de un sector por genero y dentro del genero por legajo descendente
 # ordenar_empleados_triple_criterio(empleados)
 # mostrar_empleados(empleados)
-
-
 
 
 

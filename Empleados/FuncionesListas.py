@@ -8,6 +8,12 @@ def duplicar(numero:int)->int:
     numero = numero * 2
     return numero
 
+def mostrar_lista_tuplas(listas:list)->None:
+    for tupla in listas:
+        for el in tupla:
+            print(f"{el:15}", end="")
+        print()
+
 def duplicar_valores(lista)->None:
     for i in range(len(lista)):
         lista[i] = lista[i] * 2
